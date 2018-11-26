@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0.0" type="plugin" group="system" method="upgrade">
+  <name>PLUGSCROLL_NAME</name>
+  <creationDate>---</creationDate>
+  <author>----</author>
+  <authorEmail>------</authorEmail>
+  <authorUrl>------</authorUrl>
+  <copyright>---</copyright>
+  <license>---</license>
+  <version>0</version>
+  <description>
+    PLUGSCROLL_DESC
+  </description>
+  <files>
+    <filename plugin="plugscroll">plugscroll.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <folder>language</folder>
+        <folder>fields</folder>
+        <folder>postinstall</folder>
+        <folder>sql</folder>
+        <folder>assets</folder>
+        <folder>tmpl</folder>
+  </files>
+  <media folder="media" destination="plg_system_plugscroll">
+            <folder>assets</folder>
+        </media>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_plugscroll.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_plugscroll.sys.ini</language>
+        <language tag="pt-BR">pt-BR/pt-BR.plg_system_plugscroll.ini</language>
+        <language tag="pt-BR">pt-BR/pt-BR.plg_system_plugscroll.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params" addfieldpath="/plugins/system/plugscroll/fields">
+            <fieldset name="basic">
+              <field name="loadjquery" type="radio" default="0" label="PLUGSCROLL_LOADJQUERY" description="PLUGSCROLL_LOADJQUERY_DESC">
+                <option value="0">NO</option>
+                <option value="1">YES</option>
+              </field>
+              <field name="loadcss" type="radio" default="0" label="PLUGSCROLL_LOADCSS" description="PLUGSCROLL_LOADCSS_DESC">
+                <option value="0">NO</option>
+                <option value="1">YES</option>
+              </field>
+              <field name="load" label="PLUGSCROLL_IMG" type="media" directory="" />
+              <field name="blocoparam" type="text" default="[data-next4-scroll]" label="PLUGSCROLL_PARAM" description="PLUGSCROLL_DESC_PARAM" size="10" />
+             <field 
+             name="plugscrollcall"
+             type="plugscrollcall"
+             label="PLUGSCROLL_DESC_EXEC_MOD"
+             description="PLUGSCROLL_DESC_LAYOUT" />      
+              <field name="layoutbloco" type="filelist" default="" label="PLUGSCROLL_DESC_LAYOUT" description="PLUGSCROLL_DESC_DESC_L" directory="plugins/system/plugscroll/tmpl" filter="" exclude="" stripext="true" />
+                <field name="categorias"
+                  type="Repeatable"
+                  icon="list"
+                  description="PLUGSCROLL_DESC_CAT"
+                  label="PLUGSCROLL_LABEL_CAT"
+                  default="">
+                  <fields name="params">
+                  <fieldset hidden="true" name="categorias_modal" repeat="true">
+                    <field name="categoria" type="category" extension="com_content" label="PLUGSCROLL_SUB_CAT" description="" />
+                  </fieldset>
+                  </fields>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
